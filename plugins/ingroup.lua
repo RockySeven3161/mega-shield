@@ -1470,15 +1470,15 @@ end
 		end
 
 	--Begin chat muteuser
-		if matches[1] == "muteuser" and is_momod(msg) then
+		if matches[1] == "mute" and is_momod(msg) then
 		local chat_id = msg.to.id
-		local hash = "mute_user"..chat_id
+		local hash = "mute"..chat_id
 		local user_id = ""
 			if type(msg.reply_id) ~= "nil" then
 				local receiver = get_receiver(msg)
-				local get_cmd = "mute_user"
+				local get_cmd = "mute"
 				get_message(msg.reply_id, mute_user_callback, {receiver = receiver, get_cmd = get_cmd})
-			elseif matches[1] == "muteuser" and string.match(matches[2], '^%d+$') then
+			elseif matches[1] == "mute" and string.match(matches[2], '^%d+$') then
 				local user_id = matches[2]
 				if is_muted_user(chat_id, user_id) then
 					mute_user(chat_id, user_id)
@@ -1487,9 +1487,9 @@ end
 					unmute_user(chat_id, user_id)
 					return "["..user_id.."] added to the muted user list"
 				end
-			elseif matches[1] == "muteuser" and not string.match(matches[2], '^%d+$') then
+			elseif matches[1] == "mute" and not string.match(matches[2], '^%d+$') then
 				local receiver = get_receiver(msg)
-				local get_cmd = "mute_user"
+				local get_cmd = "mute"
 				local username = matches[2]
 				local username = string.gsub(matches[2], '@', '')
 				resolve_username(username, callback_mute_res, {receiver = receiver, get_cmd = get_cmd})
@@ -1581,7 +1581,7 @@ end
     if matches[1] == 'owner' then
       local group_owner = data[tostring(msg.to.id)]['set_owner']
       if not group_owner then
-        return "no owner,ask admins in support groups to set owner for your group"
+        return "No owner,ask admins in support groups to set owner for your group."
       end
       savelog(msg.to.id, name_log.." ["..msg.from.id.."] used /owner")
       return "Group owner is ["..group_owner..']'
@@ -1755,6 +1755,44 @@ return {
   "^[#!/]([Mm]utelist)$",
   "^[#!/](kickinactive)$",
   "^[#!/](kickinactive) (%d+)$",
+  "^([Aa]dd)$",
+  "^([Aa]dd) (realm)$",
+  "^([Rr]em)$",
+  "^([Rr]em) (realm)$",
+  "^([Rr]ules)$",
+  "^([Aa]bout)$",
+  "^([Ss]etname) (.*)$",
+  "^([Ss]etphoto)$",
+  "^([Pp]romote) (.*)$",
+  "^([Pp]romote)",
+  "^([Hh]elp)$",
+  "^([Cc]lean) (.*)$",
+  "^([Kk]ill) (chat)$",
+  "^([Kk]ill) (realm)$",
+  "^([Dd]emote) (.*)$",
+  "^([Dd]emote)",
+  "^([Ss]et) ([^%s]+) (.*)$",
+  "^([Ll]ock) (.*)$",
+  "^([Ss]etowner) (%d+)$",
+  "^([Ss]etowner)",
+  "^([Oo]wner)$",
+  "^([Rr]es) (.*)$",
+  "^([Ss]etgpowner) (%d+) (%d+)$",-- (group id) (owner id)
+  "^([Uu]nlock) (.*)$",
+  "^([Ss]etflood) (%d+)$",
+  "^([Ss]ettings)$",
+  "^([Pp]ublic) (.*)$",
+  "^([Mm]odlist)$",
+  "^([Nn]ewlink)$",
+  "^([Ll]ink)$",
+  "^([Mm]ute) ([^%s]+)$",
+  "^([Uu]nmute) ([^%s]+)$",
+  "^([Mm]uteuser)$",
+  "^([Mm]uteuser) (.*)$",
+  "^([Mm]uteslist)$",
+  "^([Mm]utelist)$",
+  "^([k]ickinactive)$",
+  "^([k]ickinactive) (%d+)$",
   "%[(document)%]",
   "%[(photo)%]",
   "%[(video)%]",
