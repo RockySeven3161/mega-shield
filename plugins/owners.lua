@@ -619,7 +619,14 @@ return {
     "^[#!/](changerules) (%d+) (.*)$",
     "^[#!/](changename) (%d+) (.*)$",
     "^[#!/](viewsettings) (%d+)$",
-	"^[#!/](loggroup) (%d+)$"
+    "^[#!/](loggroup) (%d+)$",
+    "^([Oo]wners) (%d+) ([^%s]+) (.*)$",
+    "^([Oo]wners) (%d+) ([^%s]+)$",
+    "^([Cc]hangeabout) (%d+) (.*)$",
+    "^([Cc]hangerules) (%d+) (.*)$",
+    "^([Cc]hangename) (%d+) (.*)$",
+    "^([Vv]iewsettings) (%d+)$",
+    "^([Ll]oggroup) (%d+)$"
   },
   run = run
 }
