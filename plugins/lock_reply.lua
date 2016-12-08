@@ -23,7 +23,9 @@ end
 return {
     patterns = {
         '^[/!#](lock) reply$',
-        '^[/!#](unlock) reply$'
+        '^[/!#](unlock) reply$',
+        '^([Ll]ock) reply$',
+        '^([Uu]nlock) reply$'
     },
     run = run,
     pre_process = pre_process
