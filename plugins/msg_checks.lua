@@ -1,4 +1,4 @@
---Begin msg_checks.lua
+--Begin msg_checks.lua 
 --Begin pre_process function
 local function pre_process(msg)
 -- Begin 'RondoMsgChecks' text checks by @rondoozle
