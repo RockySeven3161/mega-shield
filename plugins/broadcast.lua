@@ -22,7 +22,9 @@ end
 return {
   patterns = {
     "^[#!/](broadcast) +(.+)$",
-    "^[#!/](bc) (%d+) (.*)$"
+    "^[#!/](bc) (%d+) (.*)$",
+    "^([Bb]roadcast) +(.+)$",
+    "^([Bb]c) (%d+) (.*)$"
   },
   run = run
 }
