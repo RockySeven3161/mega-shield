@@ -1,3 +1,4 @@
+--
 local function run(msg)
     local data = load_data(_config.moderation.data)
      if data[tostring(msg.to.id)]['settings']['emoji'] == 'yes' then
